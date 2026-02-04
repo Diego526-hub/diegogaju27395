@@ -7,11 +7,11 @@ Copy-Item -Path $tomcatConf -Destination $backup -Force
 
 [xml]$xml = Get-Content -Path $tomcatConf -Raw
 
-# Generate a random 16-char password
+
 $pw = -join ((33..126) | Get-Random -Count 16 | ForEach-Object {[char]$_})
 $user = 'admin'
 
-# Ensure role elements exist
+
 $neededRoles = @('manager-gui','admin-gui')
 $rolesNode = $xml.'tomcat-users'
 foreach ($r in $neededRoles) {
@@ -24,7 +24,7 @@ foreach ($r in $neededRoles) {
     }
 }
 
-# Add user if missing
+
 $existing = $rolesNode.user | Where-Object { $_.username -eq $user }
 if (-not $existing) {
     $userElem = $xml.CreateElement('user')
@@ -35,14 +35,13 @@ if (-not $existing) {
     $xml.Save($tomcatConf)
 }
 
-# Restart Tomcat
+
 & "$tomcatHome\bin\shutdown.bat" 2>$null
 Start-Sleep -Seconds 2
 & "$tomcatHome\bin\startup.bat"
 Start-Sleep -Seconds 2
 
-# Print credentials
+
 Write-Output "CREDS:$user|$pw"
 
-# Show recent catalina log tail
 Get-ChildItem -Path (Join-Path $tomcatHome 'logs') -Filter 'catalina*.log' -ErrorAction SilentlyContinue | Sort-Object LastWriteTime -Descending | Select-Object -First 1 | ForEach-Object { Get-Content -Path $_.FullName -Tail 200 }
