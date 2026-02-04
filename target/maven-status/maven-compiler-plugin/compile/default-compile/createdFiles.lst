@@ -1,0 +1,8 @@
+com\auca\registration\SimpleServer$LoginHandler.class
+com\auca\registration\SimpleServer$RedirectHandler.class
+com\auca\registration\LoginServlet.class
+com\auca\registration\RedirectServlet.class
+com\auca\registration\SimpleServer$RedirectPageHandler.class
+com\auca\registration\SimpleServer.class
+com\auca\registration\Main.class
+com\auca\registration\SimpleServer$LoginPageHandler.class

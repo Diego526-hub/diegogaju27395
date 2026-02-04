@@ -1,0 +1,10 @@
+{
+  "communityServerConnector.servers": [
+    {
+      "name": "Tomcat-8.5.93",
+      "type": "tomcat",
+      "path": "C:\\Users\\HP\\OneDrive\\Apps\\Desktop\\Sem V\\webtech\\apache-tomcat-8.5.93-windows-x64\\apache-tomcat-8.5.93",
+      "port": 8080
+    }
+  ]
+}
