@@ -31,3 +31,7 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Ignore loose screenshot files ###
+*.jpg
+!Screenshots/*.jpg
