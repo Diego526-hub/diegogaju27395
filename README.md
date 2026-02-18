@@ -144,7 +144,4 @@ src/main/java/com/example/question4_Ecommerce_/api/
 ✅ Full CRUD Operations  
 ✅ PostgreSQL Database Integration  
 ✅ Advanced Filtering (Category, Brand, Price Range)  
-✅ Pagination Support  
-✅ Keyword Search  
-✅ Stock Management  
 ✅ RESTful API Design
